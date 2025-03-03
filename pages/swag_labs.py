@@ -1,28 +1,30 @@
 from conftest import browser
 from pages.base_page import BasePage
 from selenium.common.exceptions import NoSuchElementException
+from components.components import WebElements
 
 
 class SwagLabs(BasePage):
 
-    def exist_icon(self, browser):
+    def __init__(self, driver):
+        self.base_url = "https://www.saucedemo.com/"
+        super().__init__(driver, self.base_url)
 
-        try:
-            self.find_element(locator='div.login_logo')
-        except NoSuchElementException:
-            return False
-        return True
+        self.icon = WebElements(driver, '#root > div > div.login_logo')
+        self.user_name = WebElements(driver, '#user-name')
+        self.password = WebElements(driver, '#password')
+
 
     def check_username(self, browser):
         try:
-            self.find_element(locator='#user-name')
+            self.user_name.find_element()
         except NoSuchElementException:
             return False
         return True
 
     def check_password(self, browser):
         try:
-            self.find_element(locator='#password')
+            self.password.find_element()
         except NoSuchElementException:
             return False
         return True
