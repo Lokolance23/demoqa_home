@@ -1,5 +1,5 @@
 class BasePage:
-    def __init__(self, driver, base_url = ''):
+    def __init__(self, driver, base_url = 'https://demoqa.com/'):
         self.driver = driver
         self.base_url = base_url
 
