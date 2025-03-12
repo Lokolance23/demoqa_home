@@ -1,6 +1,6 @@
 from time import sleep
 
-from pages.test_login_form import RegistrationForm
+from pages.login_form import RegistrationForm
 
 def test_check_validate(browser):
     reg_page = RegistrationForm(browser, 'https://demoqa.com/automation-practice-form')

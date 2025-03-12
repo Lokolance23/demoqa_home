@@ -76,3 +76,9 @@ class WebElements:
         self.driver.execute_script(
             "window.scrollTo(0, document.body.scrollHeight);", self.find_element()
         )
+
+    def attr_exist(self, attr):
+        if self.driver.getAttribute(attr) is None:
+            return False
+        else:
+            return True
