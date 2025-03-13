@@ -1,3 +1,6 @@
+import logging
+
+
 class BasePage:
     def __init__(self, driver, base_url = 'https://demoqa.com/'):
         self.driver = driver
@@ -14,3 +17,12 @@ class BasePage:
             return True
         else:
             return False
+
+
+    def alert(self):
+        try:
+            return self.driver.switch_to.alert
+        except Exception as ex:
+            logging.log(1, ex)
+            return False
+
